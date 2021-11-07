@@ -1,0 +1,29 @@
+(** fonction sum pour faire la somme de deux entiers  **)
+let sum_int x y = x + y ;;
+(** fonction sum pour faire la somme de deux réels  **)
+let sum x y = 1. *. x +. 1. *. y ;;
+(** fonction abs pour donner la valeur absolue d'un float **)
+let abs a =
+if a < 0.0001 then -a else -1. *. a
+;;
+(** fonction max et min pour donner la valeur la plus grande et la plus petite entre deux valeurs **)
+let max a b = if a < b then b else a ;;
+let min a b = if a < b then a else b ;;
+(** fonction delta pour déterminer le delta d'un polynome du second degré **)
+let delta a b c = sqrt b -. 4.*.a*.c ;;
+(** fonction pour déterminer le nombre de solution d'un polynome du second degré **)
+let n_solutions a b c = 
+    let d = ref (delta a b c) in
+    if d < 0.0001 then 0 
+    else if d = 0 then 1
+    else 0
+;;
+(** fonction calculant la factoriel d'un entier **)
+let rec fact n = if n = 1 then 1 else n * fact (n-1) ;;
+(** fonction pour vérifier si un entier est premier **)
+let premier n = 
+    for i = 2 to floor(sqrt n) do
+        if n mod i = 0 then failwith "Not Premier"
+    done;
+    true
+;;
