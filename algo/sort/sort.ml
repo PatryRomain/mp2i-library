@@ -13,3 +13,15 @@ let sort_bubble t =
       if t.(j) > t.(j + 1) then swap t j (j + 1)
       done
   done;;
+  
+(** [dicho t] trouve un élément d'une table en complexité (log(n)) **)
+let dicho t e =
+    let rec fonction_auxil debut fin t e = 
+        let milieu = (debut + fin)/2 in
+        if t.(milieu) > e 
+            then fonction_auxil debut (milieu-1) t e 
+        else 
+            if t.(milieu) = e then milieu
+            else fonction_auxil (milieu+1) fin t e
+    in
+    fonction_auxil 0 (Array.length t -1) t e
